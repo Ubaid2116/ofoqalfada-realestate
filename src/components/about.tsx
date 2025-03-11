@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from "react"
-import Image from "next/image"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { CheckCircle, Award, Users, Home } from "lucide-react"
+import { useRef, useEffect } from "react";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CheckCircle, Award, Users, Home } from "lucide-react";
 
 const AboutSection = () => {
-  const ref = useRef(null)
+  const ref = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -19,7 +19,7 @@ const AboutSection = () => {
         end: "bottom center",
         toggleActions: "play none none reverse",
       },
-    })
+    });
 
     tl.from(".about-title", {
       duration: 0.8,
@@ -35,7 +35,7 @@ const AboutSection = () => {
           opacity: 0,
           ease: "power3.out",
         },
-        "-=0.6",
+        "-=0.6"
       )
       .from(
         ".about-text",
@@ -45,7 +45,7 @@ const AboutSection = () => {
           opacity: 0,
           ease: "power3.out",
         },
-        "-=0.6",
+        "-=0.6"
       )
       .from(
         ".about-feature",
@@ -56,7 +56,7 @@ const AboutSection = () => {
           stagger: 0.2,
           ease: "power3.out",
         },
-        "-=0.6",
+        "-=0.6"
       )
       .from(
         ".about-image",
@@ -66,7 +66,7 @@ const AboutSection = () => {
           opacity: 0,
           ease: "power3.out",
         },
-        "-=1.2",
+        "-=1.2"
       )
       .from(
         ".about-shape",
@@ -77,14 +77,14 @@ const AboutSection = () => {
           stagger: 0.2,
           ease: "elastic.out(1, 0.3)",
         },
-        "-=1.5",
-      )
+        "-=1.5"
+      );
 
     return () => {
       // Clean up
-      if (tl) tl.kill()
-    }
-  }, [])
+      if (tl) tl.kill();
+    };
+  }, []);
 
   const features = [
     {
@@ -108,12 +108,16 @@ const AboutSection = () => {
     {
       icon: CheckCircle,
       title: "Client Satisfaction",
-      description: "Our client-first approach ensures that your needs and preferences are our top priority.",
+      description:
+        "Our client-first approach ensures that your needs and preferences are our top priority.",
     },
-  ]
+  ];
 
   return (
-    <section ref={ref} className="relative py-20 w-full overflow-hidden bg-gray-50">
+    <section
+      ref={ref}
+      className="relative py-20 w-full overflow-hidden bg-gray-50"
+    >
       {/* Background shapes */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="about-shape absolute top-[10%] right-[10%] w-[20vw] h-[20vw] bg-[#b8a369] opacity-5 rounded-full"></div>
@@ -176,27 +180,33 @@ const AboutSection = () => {
               <h2 className="about-title text-4xl md:text-5xl font-bold text-[#4a4a4a]">
                 We Help You Find The Perfect Home
               </h2>
-
               <p className="about-text text-gray-600 text-lg">
-                OFOQ ALFADA is a premier real estate agency dedicated to helping clients find their dream properties.
-                With a focus on luxury homes and exceptional service, we've established ourselves as leaders in the real
-                estate market.
+                OFOQ ALFADA is a premier real estate agency dedicated to helping
+                clients find their dream properties. With a focus on luxury
+                homes and exceptional service, we&apos;ve established ourselves
+                as leaders in the real estate market.
               </p>
 
               <p className="about-text text-gray-600 text-lg">
-                Our mission is to provide a seamless and personalized experience for every client, whether you're buying
-                your first home, investing in property, or selling your current residence.
+                Our mission is to provide a seamless and personalized experience
+                for every client, whether you&apos;re buying your first home,
+                investing in property, or selling your current residence.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="about-feature flex items-start gap-4">
+                <div
+                  key={index}
+                  className="about-feature flex items-start gap-4"
+                >
                   <div className="shrink-0 w-12 h-12 rounded-full bg-[#b8a369]/10 flex items-center justify-center text-[#b8a369]">
                     <feature.icon size={24} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-[#4a4a4a] mb-1">{feature.title}</h3>
+                    <h3 className="text-lg font-bold text-[#4a4a4a] mb-1">
+                      {feature.title}
+                    </h3>
                     <p className="text-gray-600">{feature.description}</p>
                   </div>
                 </div>
@@ -206,8 +216,7 @@ const AboutSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
-
+export default AboutSection;
