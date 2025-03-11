@@ -130,14 +130,18 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-6 relative z-10">"{testimonial.quote}"</p>
+              <p className="text-gray-600 mb-6 relative z-10">&quot;{testimonial.quote}&quot;</p>
 
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     size={18}
-                    className={i < testimonial.rating ? "fill-[#b8a369] text-[#b8a369]" : "text-gray-300"}
+                    className={
+                      i < testimonial.rating
+                        ? "fill-[#b8a369] text-[#b8a369]"
+                        : "text-gray-300"
+                    }
                   />
                 ))}
               </div>
@@ -150,4 +154,3 @@ const Testimonials = () => {
 }
 
 export default Testimonials
-
